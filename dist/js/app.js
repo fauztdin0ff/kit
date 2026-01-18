@@ -573,28 +573,183 @@ function initFileUploadLabels(selector = '.upload-file') {
 
 
 /*==========================================================================
-Hero slider
+Products slider
 ============================================================================*/
 function initProductsCarousel() {
-   const productsSlider = document.querySelector(".carousel__slider");
+   const sliders = document.querySelectorAll('.carousel');
 
-   if (!productsSlider) return null;
+   if (!sliders.length) return;
 
-   const productsSwiper = new Swiper(productsSlider, {
+   sliders.forEach((carousel) => {
+      const sliderEl = carousel.querySelector('.carousel__slider');
+      const paginationEl = carousel.querySelector('.carousel__slider-pagination');
+      const prevEl = carousel.querySelector('.carousel__slider-prev');
+      const nextEl = carousel.querySelector('.carousel__slider-next');
+
+      if (!sliderEl) return;
+
+      new Swiper(sliderEl, {
+         slidesPerView: 'auto',
+         loop: false,
+         spaceBetween: 8,
+         pagination: {
+            el: paginationEl,
+            clickable: true,
+         },
+         navigation: {
+            prevEl,
+            nextEl,
+         },
+      });
+   });
+}
+
+
+/*==========================================================================
+Review
+============================================================================*/
+function initReviewsLogic(swiper = null) {
+   const reviews = document.querySelectorAll('.review');
+
+   reviews.forEach(review => {
+      const textWrapper = review.querySelector('.review__text-wrapper');
+      const toggleBtn = review.querySelector('.review__text-toggle');
+
+      if (textWrapper && toggleBtn && !toggleBtn.dataset.inited) {
+         const MAX_HEIGHT = 162;
+         const fullHeight = textWrapper.scrollHeight;
+
+         if (fullHeight > MAX_HEIGHT) {
+            textWrapper.style.setProperty('--max-height', MAX_HEIGHT + 'px');
+            textWrapper.style.setProperty('--full-height', fullHeight + 'px');
+            textWrapper.classList.add('is-collapsed');
+            toggleBtn.style.display = 'block';
+
+            toggleBtn.addEventListener('click', () => {
+               const isOpen = textWrapper.classList.toggle('is-open');
+
+               toggleBtn.textContent = isOpen
+                  ? 'Меньше'
+                  : 'Читать полностью';
+            });
+
+            toggleBtn.dataset.inited = 'true';
+         } else {
+            toggleBtn.style.display = 'none';
+         }
+      }
+
+      const photo = review.querySelector('.review__author-photo');
+      const name = review.querySelector('.review__author-name');
+
+      if (photo && name && !photo.dataset.inited) {
+         const hasImage = photo.querySelector('img');
+
+         if (!hasImage) {
+            const firstLetter = name.textContent.trim().charAt(0).toUpperCase();
+            photo.textContent = firstLetter;
+            photo.classList.add('review__author-photo--letter');
+         }
+
+         photo.dataset.inited = 'true';
+      }
+   });
+}
+
+
+
+/*==========================================================================
+Reviews slider
+============================================================================*/
+function initReviewsSlider() {
+   const reviewsSlider = document.querySelector('.reviews__slider');
+   if (!reviewsSlider) return null;
+
+   const reviewsSwiper = new Swiper(reviewsSlider, {
       slidesPerView: 'auto',
       loop: false,
       spaceBetween: 8,
+      autoHeight: false,
       pagination: {
-         el: ".carousel__slider-pagination",
+         el: '.reviews__slider-pagination',
+         clickable: true,
+      },
+
+      navigation: {
+         prevEl: '.reviews__slider-prev',
+         nextEl: '.reviews__slider-next',
+      },
+
+      on: {
+         init(swiper) {
+            initReviewsLogic(swiper);
+         },
+         slideChange(swiper) {
+            initReviewsLogic(swiper);
+         }
+      }
+   });
+
+   return reviewsSwiper;
+}
+
+/*==========================================================================
+faq
+============================================================================*/
+function initFaqAccordion() {
+   const faqItems = document.querySelectorAll('.faq__item');
+   if (!faqItems.length) return;
+
+   faqItems.forEach(item => {
+      const question = item.querySelector('.faq__question');
+      const answer = item.querySelector('.faq__answer');
+
+      if (!question || !answer || item.dataset.inited) return;
+
+      question.addEventListener('click', () => {
+         const isActive = item.classList.contains('active');
+
+         faqItems.forEach(el => {
+            const elAnswer = el.querySelector('.faq__answer');
+            if (!elAnswer) return;
+
+            el.classList.remove('active');
+            elAnswer.style.maxHeight = null;
+         });
+
+         if (!isActive) {
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+         }
+      });
+
+      item.dataset.inited = 'true';
+   });
+}
+
+/*==========================================================================
+Partners slider
+============================================================================*/
+function initPartnersCarousel() {
+   const partnersSlider = document.querySelector(".partners__slider");
+
+   if (!partnersSlider) return null;
+
+   const partnersSwiper = new Swiper(partnersSlider, {
+      slidesPerView: 'auto',
+      loop: true,
+      spaceBetween: 8,
+      pagination: {
+         el: ".partners__slider-pagination",
          clickable: true,
       },
       navigation: {
-         prevEl: '.carousel__slider-prev',
-         nextEl: '.carousel__slider-next',
+         prevEl: '.partners__slider-prev',
+         nextEl: '.partners__slider-next',
       },
    });
 
-   return productsSwiper;
+   return partnersSwiper;
 }
 
 /*==========================================================================
@@ -608,6 +763,9 @@ document.addEventListener('DOMContentLoaded', () => {
    initHeroSlider();
    initFileUploadLabels();
    initProductsCarousel();
+   initReviewsSlider();
+   initFaqAccordion();
+   initPartnersCarousel();
 });
 
 
