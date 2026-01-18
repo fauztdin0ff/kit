@@ -288,62 +288,13 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+//import { space } from "postcss/lib/list";
 
 
-_modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.isWebp();
-_modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.burgerMenu();
-_modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.popups();
+//flsFunctions.isWebp();
+//flsFunctions.burgerMenu();
+//flsFunctions.popups();
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.phoneMask();
-
-/*==========================================================================
-Observer Animation
-============================================================================*/
-/* if (document.readyState === "complete") {
-   init();
-} else {
-   window.addEventListener("load", init);
-}
-
-function init() {
-   function onEntry(entry) {
-      entry.forEach(change => {
-         if (change.isIntersecting) {
-            change.target.classList.add('element-show');
-         }
-      });
-   }
-
-   let options = { threshold: [0.4] };
-   let observer = new IntersectionObserver(onEntry, options);
-   let elements = document.querySelectorAll('.element-animation');
-   for (let elm of elements) {
-      observer.observe(elm);
-   }
-} */
-
-/*==========================================================================
-Swiper slider
-============================================================================*/
-/* const reviewsSlider = document.querySelector(".reviews__slider");
-
-if (reviewsSlider) {
-   const reviewsSwiper = new Swiper(reviewsSlider, {
-      slidesPerView: 1,
-      loop: true,
-      freeMode: false,
-      parallax: true,
-      speed: 800,
-      pagination: {
-         el: ".reviews__slider-pagination",
-         clickable: true,
-      },
-      navigation: {
-         nextEl: ".reviews__slide-next",
-         prevEl: ".reviews__slide-prev",
-      },
-   });
-}
- */
 
 /*==========================================================================
 Header catalog
@@ -422,7 +373,7 @@ function initHeaderCatalog() {
    };
 
    const ensureActive = () => {
-      if (isMobile()) return; // ⬅️ mobile: ничего не навязываем
+      if (isMobile()) return;
 
       const activeItem = catalog.querySelector('.header__catalog-item.active');
       if (!activeItem && items.length) {
@@ -434,12 +385,11 @@ function initHeaderCatalog() {
       const id = item.dataset.categoryTab;
 
       item.addEventListener('mouseenter', () => {
-         if (isMobile()) return; // ⬅️ hover отключён на mobile
+         if (isMobile()) return;
          setActiveById(id);
       });
 
       item.addEventListener('click', () => {
-         // mobile — toggle
          if (isMobile()) {
             const isActive = item.classList.contains('active');
             clearActive();
@@ -462,9 +412,8 @@ function initHeaderCatalog() {
       });
    });
 
-   // Инициализация состояния
    if (isMobile()) {
-      clearActive(); // ⬅️ mobile: всё закрыто
+      clearActive();
    } else {
       setActiveById(items[0].dataset.categoryTab);
    }
@@ -558,6 +507,96 @@ function initHeaderSearch() {
    });
 }
 
+
+/*==========================================================================
+Hero slider
+============================================================================*/
+function initHeroSlider() {
+   const heroSlider = document.querySelector(".hero__slider");
+   const heroLinks = document.querySelectorAll(".hero__link");
+
+   if (!heroSlider || heroLinks.length === 0) return null;
+
+   const heroSwiper = new Swiper(heroSlider, {
+      slidesPerView: 1,
+      loop: true,
+      freeMode: false,
+      spaceBetween: 10,
+      effect: "fade",
+      speed: 600,
+      pagination: {
+         el: ".hero__slider-pagination",
+         clickable: true,
+      },
+      breakpoints: {
+         768: {
+            effect: "fade",
+         }
+      }
+   });
+
+   heroLinks.forEach((link, index) => {
+      link.addEventListener("mouseenter", () => {
+         heroSwiper.slideToLoop(index, 600);
+      });
+   });
+
+   return heroSwiper;
+}
+
+
+/*==========================================================================
+Upload file
+============================================================================*/
+function initFileUploadLabels(selector = '.upload-file') {
+   const labels = document.querySelectorAll(selector);
+
+   labels.forEach(label => {
+      const input = label.querySelector('input[type="file"]');
+      const text = label.querySelector('.upload-file__text');
+
+      if (!input || !text) return;
+
+      const defaultText = text.textContent;
+
+      input.addEventListener('change', () => {
+         if (input.files && input.files.length > 0) {
+            text.textContent = input.files[0].name;
+            label.classList.add('is-file-selected');
+         } else {
+            text.textContent = defaultText;
+            label.classList.remove('is-file-selected');
+         }
+      });
+   });
+}
+
+
+/*==========================================================================
+Hero slider
+============================================================================*/
+function initProductsCarousel() {
+   const productsSlider = document.querySelector(".carousel__slider");
+
+   if (!productsSlider) return null;
+
+   const productsSwiper = new Swiper(productsSlider, {
+      slidesPerView: 'auto',
+      loop: false,
+      spaceBetween: 8,
+      pagination: {
+         el: ".carousel__slider-pagination",
+         clickable: true,
+      },
+      navigation: {
+         prevEl: '.carousel__slider-prev',
+         nextEl: '.carousel__slider-next',
+      },
+   });
+
+   return productsSwiper;
+}
+
 /*==========================================================================
 init
 ============================================================================*/
@@ -566,6 +605,9 @@ document.addEventListener('DOMContentLoaded', () => {
    initCatalogToggle();
    initHeaderAdaptiveMove();
    initHeaderSearch();
+   initHeroSlider();
+   initFileUploadLabels();
+   initProductsCarousel();
 });
 
 

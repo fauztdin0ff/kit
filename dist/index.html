@@ -22,6 +22,7 @@
    <meta property="og:type" content="website">
    <!-- Styles -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css" />
    <link rel="stylesheet" href="css/style.min.css">
    <title>Главная</title>
 </head>
@@ -70,7 +71,7 @@
             <div class="header__main">
                <button type="button" class="catalog-button">
                   <span class="catalog-button__icon"></span>
-                  <span class="catalog-button__text">Каталог</span>
+                  <span class="catalog-button__text"><i>Каталог</i><i>Меню</i></span>
                </button>
                <nav class="header__menu">
                   <div class="header__menu-body">
@@ -90,7 +91,7 @@
                      </svg>
                   </button>
                   <form class="header__search-form">
-                     <input type="search" placeholder="Поиск" required>
+                     <input type="search" name="search" placeholder="Поиск" required>
                      <button type="submit" aria-label="Поиск">
                         <svg>
                            <use xlink:href="#icon-search"></use>
@@ -118,7 +119,7 @@
       <nav class="header__catalog">
          <div class="header__catalog-wrapper">
             <ul class="header__catalog-list">
-               <li class="header__catalog-item active" data-category-tab="1">
+               <li class="header__catalog-item" data-category-tab="1">
                   Средства коллективной защиты
                   <svg>
                      <use xlink:href="#icon-chevron"></use>
@@ -171,7 +172,7 @@
 
             <div class="header__catalog-categories">
 
-               <div class="header__catalog-category active" data-category-links="1">
+               <div class="header__catalog-category" data-category-links="1">
                   <div class="header__catalog-subname">
                      <svg class="header__catalog-icon">
                         <use xlink:href="#icon-chevron"></use>
@@ -345,8 +346,594 @@
    </div>
 </header>
       <main>
+
          <section class="hero">
-            <img src="img/bg.jpg" alt="">
+            <div class="hero__body container">
+               <div class="hero__text">
+                  <h1 class="hero__title">Продукция ГО и ЧС</h1>
+                  <div class="hero__links">
+                     <a href="catalog.html" class="hero__link">
+                        <div class="hero__link-image">
+                           <img src="img/catalog/prev-1.png" width="80" height="80" alt="cat preview">
+                        </div>
+                        <div class="hero__link-text">Средства индивидуальной защиты</div>
+                     </a>
+                     <a href="catalog.html" class="hero__link">
+                        <div class="hero__link-image">
+                           <img src="img/catalog/prev-2.png" width="80" height="80" alt="cat preview">
+                        </div>
+                        <div class="hero__link-text">Средства коллективной защиты</div>
+                     </a>
+                     <a href="catalog.html" class="hero__link">
+                        <div class="hero__link-image">
+                           <img src="img/catalog/prev-3.png" width="80" height="80" alt="cat preview">
+                        </div>
+                        <div class="hero__link-text">Дозиметры и приборы радиационного контроля</div>
+                     </a>
+                     <a href="catalog.html" class="hero__link">
+                        <div class="hero__link-image">
+                           <img src="img/catalog/prev-4.png" width="80" height="80" alt="cat preview">
+                        </div>
+                        <div class="hero__link-text">Средства химической разведки, метеоконтроля и др.</div>
+                     </a>
+                     <a href="catalog.html" class="hero__link">
+                        <div class="hero__link-image">
+                           <img src="img/catalog/prev-5.png" width="80" height="80" alt="cat preview">
+                        </div>
+                        <div class="hero__link-text">Средства специальной обработки</div>
+                     </a>
+                     <a href="catalog.html" class="hero__link">
+                        <div class="hero__link-image">
+                           <img src="img/catalog/prev-6.png" width="80" height="80" alt="cat preview">
+                        </div>
+                        <div class="hero__link-text">Медицинское имущество</div>
+                     </a>
+                     <a href="catalog.html" class="hero__link">
+                        <div class="hero__link-image">
+                           <img src="img/catalog/prev-7.png" width="80" height="80" alt="cat preview">
+                        </div>
+                        <div class="hero__link-text">Пожарное имущество и оборудование</div>
+                     </a>
+                     <a href="catalog.html" class="hero__link">
+                        <div class="hero__link-image">
+                           <img src="img/catalog/prev-8.png" width="80" height="80" alt="cat preview">
+                        </div>
+                        <div class="hero__link-text">Другое</div>
+                     </a>
+                  </div>
+               </div>
+
+               <div class="hero__content">
+                  <div class="hero__slider swiper">
+                     <div class="swiper-wrapper">
+                        <a href="catalog.html" class="hero__slide swiper-slide">
+                           <div class="hero__slide-image">
+                              <img src="img/catalog/1.png" width="462" height="608" alt="cat image">
+                           </div>
+                           <div class="hero__slide-name">
+                              Средства индивидуальной защиты
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </div>
+                        </a>
+
+                        <a href="catalog.html" class="hero__slide swiper-slide">
+                           <div class="hero__slide-image">
+                              <img src="img/catalog/2.png" width="462" height="608" alt="cat image">
+                           </div>
+                           <div class="hero__slide-name">
+                              Средства коллективной защиты
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </div>
+                        </a>
+
+                        <a href="catalog.html" class="hero__slide swiper-slide">
+                           <div class="hero__slide-image">
+                              <img src="img/catalog/3.png" width="462" height="608" alt="cat image">
+                           </div>
+                           <div class="hero__slide-name">
+                              Дозиметры и приборы радиационного контроля
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </div>
+                        </a>
+
+                        <a href="catalog.html" class="hero__slide swiper-slide">
+                           <div class="hero__slide-image">
+                              <img src="img/catalog/4.png" width="462" height="608" alt="cat image">
+                           </div>
+                           <div class="hero__slide-name">
+                              Средства химической разведки, метеоконтроля и др.
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </div>
+                        </a>
+
+                        <a href="catalog.html" class="hero__slide swiper-slide">
+                           <div class="hero__slide-image">
+                              <img src="img/catalog/5.png" width="462" height="608" alt="cat image">
+                           </div>
+                           <div class="hero__slide-name">
+                              Средства специальной обработки
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </div>
+                        </a>
+
+                        <a href="catalog.html" class="hero__slide swiper-slide">
+                           <div class="hero__slide-image">
+                              <img src="img/catalog/6.png" width="462" height="608" alt="cat image">
+                           </div>
+                           <div class="hero__slide-name">
+                              Медицинское имущество
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </div>
+                        </a>
+
+                        <a href="catalog.html" class="hero__slide swiper-slide">
+                           <div class="hero__slide-image">
+                              <img src="img/catalog/7.png" width="462" height="608" alt="cat image">
+                           </div>
+                           <div class="hero__slide-name">
+                              Пожарное имущество и оборудование
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </div>
+                        </a>
+
+                        <a href="catalog.html" class="hero__slide swiper-slide">
+                           <div class="hero__slide-image">
+                              <img src="img/catalog/8.png" width="462" height="608" alt="cat image">
+                           </div>
+                           <div class="hero__slide-name">
+                              Другое
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </div>
+                        </a>
+
+                     </div>
+                     <div class="hero__slider-pagination"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="hero__bg">
+               <video src="files/bg.mp4" poster="img/bg.jpg" muted autoplay playsinline loop></video>
+            </div>
+         </section>
+
+         <section class="benefits">
+            <div class="benefits__body container section-padding">
+               <h2 class="benefits__title section-title">Качество с индивидуальным подходом</h2>
+               <div class="benefits__subtitle section-subtitle">Комплексные поставки для ГО и ЧС, охраны труда
+                  и промышленной
+                  безопасности — оптом и в розницу</div>
+               <div class="benefits__cards">
+
+                  <div class="benefits__card">
+                     <div class="benefits__card-text">
+                        <span>32</span>
+                        Года надежных поставок
+                     </div>
+                     <div class="benefits__card-image">
+                        <img src="img/home/image-1.png" width="490" height="414" alt="bg">
+                     </div>
+                     <div class="benefits__card-bg">
+                        <img src="img/home/card-1-bg.png" width="655" height="488" alt="image">
+                     </div>
+                  </div>
+
+                  <div class="benefits__card">
+                     <div class="benefits__card-text">
+                        <b>Сертификаты <br> и паспорта</b> качества
+                     </div>
+                     <div class="benefits__card-bg">
+                        <img src="img/home/card-2-bg.png" width="490" height="414" alt="image">
+                     </div>
+                  </div>
+
+                  <div class="benefits__card">
+                     <div class="benefits__card-text">
+                        Дистрибьюторы <br><b>Зелинский групп</b>
+                     </div>
+                     <div class="benefits__card-bg">
+                        <img src="img/home/card-3-bg.png" width="490" height="414" alt="image">
+                     </div>
+                  </div>
+
+                  <div class="benefits__card">
+                     <div class="benefits__card-text">
+                        Нам доверяет РЖД <br> уже <b>25 лет</b>
+                     </div>
+                     <div class="benefits__card-bg">
+                        <img src="img/home/card-4-bg.png" width="490" height="414" alt="image">
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         </section>
+
+         <section class="request">
+            <div class="request__body container section-padding">
+               <div class="request__card">
+                  <div class="request__text">
+                     <h2 class="request__title section-title">Решаем сложные задачи</h2>
+                     <div class="request__subtitle section-subtitle">Индивидуальный подход к каждому клиенту</div>
+                  </div>
+                  <div class="request__content">
+                     <form class="request__form">
+                        <div class="request__form-row">
+                           <div class="request__form-area">
+                              <input type="text" name="name" autocomplete="name" class="input" placeholder="Имя *"
+                                 required>
+                           </div>
+                        </div>
+                        <div class="request__form-row">
+                           <div class="request__form-area">
+                              <input type="text" name="phone" autocomplete="tel" class="input tel-mask"
+                                 placeholder="Телефон *" required>
+                           </div>
+                           <div class="request__form-area">
+                              <input type="email" name="email" autocomplete="email" class="input"
+                                 placeholder="Электронная почта">
+                           </div>
+                        </div>
+                        <div class="request__form-row">
+                           <div class="request__form-area">
+                              <textarea name="text" class="textarea" placeholder="Опишите свои требования"></textarea>
+                           </div>
+                           <div class="request__form-area">
+                              <label class="upload-file">
+                                 <input type="file">
+                                 <span class="upload-file__icon">
+                                    <svg>
+                                       <use xlink:href="#icon-attachment"></use>
+                                    </svg>
+                                 </span>
+                                 <span class="upload-file__text">Прикрепите спецификацию — подберём аналоги и рассчитаем
+                                    поставку под ключ</span>
+                              </label>
+                           </div>
+                        </div>
+                        <div class="request__form-submit">
+                           <button type="submit" class="btn">Отправить
+                              <svg>
+                                 <use xlink:href="#icon-arrow-diagonal"></use>
+                              </svg>
+                           </button>
+                        </div>
+                        <label class="agreement">
+                           <input type="checkbox" name="agreement" required>
+                           <span class="agreement__box"></span>
+                           <span class="agreement__text">
+                              Нажимая на кнопку, вы даёте согласие на <a href="">обработку ваших персональных данных</a>
+                           </span>
+                        </label>
+                     </form>
+                  </div>
+                  <div class="request__card-bg">
+                     <img src="img/home/request-bg.png" width="1318" height="383" alt="bg">
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="logistic">
+            <div class="logistic__body container">
+               <div class="logistic__content">
+                  <h2 class="logistic__title section-title">Логистика и сервис</h2>
+                  <div class="logistic__cards">
+                     <div class="logistic__card">
+                        <div class="logistic__card-text">
+                           Самовывоз из Москвы
+                        </div>
+                        <div class="logistic__card-icon">
+                           <img src="img/home/icon-1.svg" width="60" height="60" alt="icon">
+                        </div>
+                     </div>
+                     <div class="logistic__card">
+                        <div class="logistic__card-text">
+                           Срочная доставка
+                        </div>
+                        <div class="logistic__card-icon">
+                           <img src="img/home/icon-2.svg" width="60" height="60" alt="icon">
+                        </div>
+                     </div>
+                     <div class="logistic__card">
+                        <div class="logistic__card-text">
+                           Отправка любой ТК по РФ
+                        </div>
+                        <div class="logistic__card-icon">
+                           <img src="img/home/icon-3.svg" width="60" height="60" alt="icon">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="logistic__image">
+                     <img src="img/home/worker.png" width="458" height="780" alt="person">
+                  </div>
+               </div>
+            </div>
+            <div class="logistic__bg">
+               <video src="files/bg.mp4" poster="img/bg.jpg" muted autoplay playsinline loop></video>
+            </div>
+         </section>
+
+         <section class="carousel">
+            <div class="carousel__body container section-padding">
+               <h2 class="carousel__title section-title">Хиты продаж</h2>
+               <div class="carousel__block">
+                  <div class="carousel__slider swiper">
+                     <div class="swiper-wrapper">
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/1.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Противогаз ППФ-5Б и фильтры для комплектации
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">1 999 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/2.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Самоспасатель универсальный фильтрующий ЗЕВС 40 С (ГДЗК-Премиум)
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price"><del>2 800 ₽</del>2 500 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn added">В корзинe
+                                       <svg>
+                                          <use xlink:href="#icon-check"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="product-preview__labels">
+                              <span class="product-preview__label -hit">Хит продаж</span>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/3.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Самоспасатель изолирующий Prox F55 (СИП-3)
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">750 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/4.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Костюм "Экран-2Б" ТУ 8572-157-00209600-02
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">4 999 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/5.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Костюм "Экран-2Б" ТУ 8572-157-00209600-02
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">4 999 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="product-preview__labels">
+                              <span class="product-preview__label -hit">Хит продаж</span>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/6.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Костюм "Экран-2Б" ТУ 8572-157-00209600-02
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">4 999 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/7.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Костюм "Экран-2Б" ТУ 8572-157-00209600-02
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">4 999 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/8.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Костюм "Экран-2Б" ТУ 8572-157-00209600-02
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">4 999 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/1.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Противогаз ППФ-5Б и фильтры для комплектации
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">1 999 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/2.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Самоспасатель универсальный фильтрующий ЗЕВС 40 С (ГДЗК-Премиум)
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">2 500 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel__slide swiper-slide product-preview">
+                           <a href="product.html" class="product-preview__image" aria-label="перейти к продукту">
+                              <img src="img/products/3.png" width="324" height="260" alt="product">
+                           </a>
+                           <div class="product-preview__info">
+                              <a href="product.html" class="product-preview__name">
+                                 Самоспасатель изолирующий Prox F55 (СИП-3)
+                              </a>
+                              <div class="product-preview__action">
+                                 <div class="product-preview__price">750 ₽</div>
+                                 <div class="product-preview__cart">
+                                    <button type="button" class="btn">В корзину
+                                       <svg>
+                                          <use xlink:href="#icon-cart"></use>
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="slider-panel">
+                     <div class="slider-panel__buttons">
+                        <button type="button" class="carousel__slider-prev slider-panel__prev"
+                           aria-label="предыдущий слайд">
+                           <svg>
+                              <use xlink:href="#icon-arrow-left"></use>
+                           </svg>
+                        </button>
+                        <button type="button" class="carousel__slider-next slider-panel__next"
+                           aria-label="следующий слайд">
+                           <svg>
+                              <use xlink:href="#icon-arrow-right"></use>
+                           </svg>
+                        </button>
+                     </div>
+                     <div class="carousel__slider-pagination slider-panel__pagination"></div>
+                  </div>
+               </div>
+            </div>
          </section>
       </main>
       <footer class="footer">
@@ -429,6 +1016,7 @@
 </svg>
 
    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
    <script src="js/app.js"></script>
 </body>
 
