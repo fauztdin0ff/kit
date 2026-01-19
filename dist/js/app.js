@@ -472,14 +472,19 @@ function initHeaderSearch() {
 
    const toggle = search.querySelector('.header__search-toggle');
    const form = search.querySelector('.header__search-form');
+   const input = form?.querySelector('input');
 
-   if (!toggle || !form) return;
+   if (!toggle || !form || !input) return;
 
    const ACTIVE_CLASS = 'active';
 
    const openSearch = () => {
       search.classList.add(ACTIVE_CLASS);
       form.classList.add(ACTIVE_CLASS);
+
+      setTimeout(() => {
+         input.focus();
+      }, 0);
    };
 
    const closeSearch = () => {
@@ -508,36 +513,41 @@ function initHeaderSearch() {
 }
 
 
+
 /*==========================================================================
 Hero slider
 ============================================================================*/
 function initHeroSlider() {
-   const heroSlider = document.querySelector(".hero__slider");
-   const heroLinks = document.querySelectorAll(".hero__link");
+   const heroSlider = document.querySelector('.hero__slider');
+   const heroLinks = document.querySelectorAll('.hero__link');
 
-   if (!heroSlider || heroLinks.length === 0) return null;
+   if (!heroSlider || !heroLinks.length) return null;
 
    const heroSwiper = new Swiper(heroSlider, {
       slidesPerView: 1,
       loop: true,
-      freeMode: false,
       spaceBetween: 10,
-      effect: "fade",
+      effect: 'fade',
       speed: 600,
       pagination: {
-         el: ".hero__slider-pagination",
+         el: '.hero__slider-pagination',
          clickable: true,
       },
       breakpoints: {
          768: {
-            effect: "fade",
+            effect: 'fade',
          }
       }
    });
 
+   heroLinks[0].classList.add('active');
+
    heroLinks.forEach((link, index) => {
-      link.addEventListener("mouseenter", () => {
+      link.addEventListener('mouseenter', () => {
          heroSwiper.slideToLoop(index, 600);
+
+         heroLinks.forEach(l => l.classList.remove('active'));
+         link.classList.add('active');
       });
    });
 
@@ -589,7 +599,7 @@ function initProductsCarousel() {
       if (!sliderEl) return;
 
       new Swiper(sliderEl, {
-         slidesPerView: 'auto',
+         slidesPerView: 4,
          loop: false,
          spaceBetween: 8,
          pagination: {
@@ -600,6 +610,20 @@ function initProductsCarousel() {
             prevEl,
             nextEl,
          },
+         breakpoints: {
+            320: {
+               slidesPerView: 1.1,
+            },
+            480: {
+               slidesPerView: 2,
+            },
+            768: {
+               slidesPerView: 3,
+            },
+            1100: {
+               slidesPerView: 4,
+            }
+         }
       });
    });
 }
@@ -738,6 +762,7 @@ function initPartnersCarousel() {
    const partnersSwiper = new Swiper(partnersSlider, {
       slidesPerView: 'auto',
       loop: true,
+      speed: 800,
       spaceBetween: 8,
       pagination: {
          el: ".partners__slider-pagination",
@@ -746,6 +771,11 @@ function initPartnersCarousel() {
       navigation: {
          prevEl: '.partners__slider-prev',
          nextEl: '.partners__slider-next',
+      },
+      autoplay: {
+         delay: 1000,
+         disableOnInteraction: false,
+         pauseOnMouseEnter: false,
       },
    });
 
@@ -1053,7 +1083,7 @@ if (productGallerySliderthumbs && productGallerySliderBig) {
 
    const productSwiperBig = new Swiper(productGallerySliderBig, {
       direction: 'horizontal',
-      spaceBetween: 10,
+      spaceBetween: 0,
       slidesPerView: 1,
       pagination: {
          el: '.product__gallery-pagination',
